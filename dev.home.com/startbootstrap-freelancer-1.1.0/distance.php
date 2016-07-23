@@ -56,7 +56,7 @@
           }
         }
         }
-        $redir = 'http://localhost/team-3/dev.home.com/startbootstrap-freelancer-1.1.0/mentor_map.php?distance='. $mentor_match . '&mentor_id='. $mentor_id;
+        $redir = 'http://ec2-54-179-176-127.ap-southeast-1.compute.amazonaws.com/dev.home.com/startbootstrap-freelancer-1.1.0/mentor_map.php?distance='. $mentor_match . '&mentor_id='. $mentor_id;
         header('Location:'.$redir);
 
       
