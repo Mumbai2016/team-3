@@ -100,9 +100,6 @@ require "databasecheck.php";
 	$res=mysqli_query($con,"Select mtr_name, mtr_sex, mtr_workex from mentor_basic where mtr_status=0") ;
 	if(!$res){die('Error' . mysqli_error($con));}
 $check_user = mysqli_num_rows($res);
-	if(is_null($check_user)){
-		echo "$check_user empty";
-	}
 $i=1;
 
 	if($check_user>0){
