@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Jul 23, 2016 at 05:02 PM
+-- Generation Time: Jul 23, 2016 at 06:43 PM
 -- Server version: 5.7.13-log
 -- PHP Version: 5.6.23
 
@@ -60,6 +60,18 @@ DELIMITER ;
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `assignment`
+--
+
+CREATE TABLE `assignment` (
+  `assign_id` int(11) NOT NULL,
+  `assign_mtrid` int(11) NOT NULL,
+  `assign_mntid` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `login`
 --
 
@@ -78,7 +90,10 @@ INSERT INTO `login` (`log_id`, `log_email`, `log_pass`, `log_role`) VALUES
 (1, 'shahsa', 'sdsd', 'admin'),
 (2, 'a', 'b', 'c'),
 (3, 'fdsfsdfsd', 'sadasdas', 'admin'),
-(4, 'jane@gmail.com', 'key123', 'mentee');
+(4, 'jane@gmail.com', 'key123', 'mentee'),
+(5, 'yashshah96@gmail.com', 'key123', 'mentor'),
+(6, 'shantanuugemuge@gmail.com', 'key123', 'mentor'),
+(7, 'yogeetamanglani@gmail.com', 'key1234', 'mentee');
 
 -- --------------------------------------------------------
 
@@ -105,7 +120,8 @@ CREATE TABLE `mentee_basic` (
 --
 
 INSERT INTO `mentee_basic` (`mnt_id`, `mnt_name`, `mnt_dob`, `mnt_address`, `mnt_college`, `mnt_cyear`, `mnt_mobile`, `mnt_resno`, `mnt_email`, `mnt_pass`, `mnt_aggr12th`) VALUES
-(1, 'Jane Rogers', '1995-01-17', '123 buidling street andheri mumbai', 'MIT', '4th', '9876543210', '022-2544323', 'jane@gmail.com', 'key123', '80%');
+(1, 'Jane Rogers', '1995-01-17', '123 buidling street andheri mumbai', 'MIT', '4th', '9876543210', '022-2544323', 'jane@gmail.com', 'key123', '80%'),
+(2, 'Rucha Shah', '1996-07-08', 'Jai Prakash Rd, Sahakar Nagar, Azad Nagar, Andheri West, Mumbai', 'VESIT', '3rd', '9876152364', '022-2348695', 'yogeetamanglani@gmail.com', 'key1234', '90%');
 
 --
 -- Triggers `mentee_basic`
@@ -131,26 +147,24 @@ CREATE TABLE `mentor_basic` (
   `mtr_email` varchar(50) NOT NULL,
   `mtr_pass` varchar(40) NOT NULL,
   `mtr_name` varchar(50) NOT NULL,
-  `mtr_contact` int(15) NOT NULL,
+  `mtr_contact` varchar(20) NOT NULL,
   `mtr_address` varchar(120) NOT NULL,
   `mtr_sex` enum('Male','Female') NOT NULL,
   `mtr_dob` date NOT NULL,
-  `mtr_location` varchar(15) NOT NULL,
   `mtr_resno` varchar(15) NOT NULL,
-  `mtr_workno` varchar(15) NOT NULL,
   `mtr_HighAcadQual` varchar(20) NOT NULL,
-  `mtr_college` varchar(40) NOT NULL,
   `mtr_currentcom` varchar(40) NOT NULL,
-  `mtr_designation` varchar(20) NOT NULL,
-  `mtr_companyadd` varchar(120) NOT NULL,
-  `mtr_worksince` varchar(20) NOT NULL,
   `mtr_workex` int(3) NOT NULL,
-  `mtr_hobbies` varchar(75) NOT NULL,
-  `mtr_katalystinput` varchar(75) NOT NULL,
-  `mtr_assoc` varchar(70) NOT NULL,
-  `mtr_timeinvest` int(3) NOT NULL,
   `mtr_status` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `mentor_basic`
+--
+
+INSERT INTO `mentor_basic` (`mtr_id`, `mtr_email`, `mtr_pass`, `mtr_name`, `mtr_contact`, `mtr_address`, `mtr_sex`, `mtr_dob`, `mtr_resno`, `mtr_HighAcadQual`, `mtr_currentcom`, `mtr_workex`, `mtr_status`) VALUES
+(1, 'yashshah96@gmail.com', 'key123', 'Yash Shah', '982222335', '403 Raheja Crest 1,Off new link road, Lokhandwala,Andheri West,Mumbai', 'Male', '1990-03-24', '022-2434567', 'M.S', 'ABC copr', 8, 0),
+(2, 'shantanuugemuge@gmail.com', 'key123', 'Shantanu Ugemuge', '8879000777', '1403, SOham''s tropical lagoon,Vijay VIlas ROad,Off Ghodbunder Road, Thane WEST,Thane', 'Male', '1992-03-24', '022-2434567', 'M.S', 'XYZ copr', 9, 0);
 
 --
 -- Triggers `mentor_basic`
@@ -208,6 +222,14 @@ ALTER TABLE `admin`
   ADD PRIMARY KEY (`adm_id`);
 
 --
+-- Indexes for table `assignment`
+--
+ALTER TABLE `assignment`
+  ADD PRIMARY KEY (`assign_id`),
+  ADD KEY `assign_mtrid` (`assign_mtrid`),
+  ADD KEY `assign_mntid` (`assign_mntid`);
+
+--
 -- Indexes for table `login`
 --
 ALTER TABLE `login`
@@ -229,7 +251,10 @@ ALTER TABLE `mentor_basic`
 -- Indexes for table `mentor_skills`
 --
 ALTER TABLE `mentor_skills`
-  ADD PRIMARY KEY (`ms_id`);
+  ADD PRIMARY KEY (`ms_id`),
+  ADD KEY `ms_mtrid` (`ms_mtrid`),
+  ADD KEY `ms_mtrid_2` (`ms_mtrid`),
+  ADD KEY `ms_mtrid_3` (`ms_mtrid`);
 
 --
 -- Indexes for table `skills_master`
@@ -247,15 +272,25 @@ ALTER TABLE `skills_master`
 ALTER TABLE `admin`
   MODIFY `adm_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 --
+-- AUTO_INCREMENT for table `assignment`
+--
+ALTER TABLE `assignment`
+  MODIFY `assign_id` int(11) NOT NULL AUTO_INCREMENT;
+--
 -- AUTO_INCREMENT for table `login`
 --
 ALTER TABLE `login`
-  MODIFY `log_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `log_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 --
 -- AUTO_INCREMENT for table `mentee_basic`
 --
 ALTER TABLE `mentee_basic`
-  MODIFY `mnt_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `mnt_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+--
+-- AUTO_INCREMENT for table `mentor_basic`
+--
+ALTER TABLE `mentor_basic`
+  MODIFY `mtr_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT for table `mentor_skills`
 --
@@ -266,6 +301,17 @@ ALTER TABLE `mentor_skills`
 --
 ALTER TABLE `skills_master`
   MODIFY `skill_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+--
+-- Constraints for dumped tables
+--
+
+--
+-- Constraints for table `assignment`
+--
+ALTER TABLE `assignment`
+  ADD CONSTRAINT `assignment_ibfk_2` FOREIGN KEY (`assign_mntid`) REFERENCES `mentee_basic` (`mnt_id`),
+  ADD CONSTRAINT `assignment_ibfk_3` FOREIGN KEY (`assign_mtrid`) REFERENCES `mentor_basic` (`mtr_id`);
+
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
