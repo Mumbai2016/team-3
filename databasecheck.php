@@ -1,7 +1,7 @@
 <?php
 
 
-$con = new mysqli_connect("http://ec2-54-179-176-127.ap-southeast-1.compute.amazonaws.com","root","root","katalyst_team3");
+$con =mysqli_connect("localhost","root","root","katalyst_team3");
 
 // Check connection
 if (mysqli_connect_errno())
