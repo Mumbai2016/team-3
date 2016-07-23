@@ -1,5 +1,5 @@
 <?php
-require 'C:/xampp/htdocs/team-3/databasecheck.php';
+require 'databasecheck.php';
 ?> 
 <?php
  $mid=$_GET['mentor_id'];
