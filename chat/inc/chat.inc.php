@@ -11,9 +11,9 @@ class SimpleChat {
     // constructor
     function SimpleChat() {
         //mysql_connect("localhost","username","password");
-        $this->sDbName = 'database_name';
-        $this->sDbUser = 'username';
-        $this->sDbPass = 'password';
+        $this->sDbName = 'katalyst_team3';
+        $this->sDbUser = 'root';
+        $this->sDbPass = 'root';
     }
 
     // adding to DB table posted message
