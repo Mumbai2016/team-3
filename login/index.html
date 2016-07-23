@@ -19,13 +19,14 @@
 		<div class="avatar">
       <img src="http://cdn.ialireza.me/avatar.png">
 		</div>
-		<input type="text" placeholder="username" required>
+		<form action="log.php" method="post">
+		<input type="text" name="username" placeholder="username" required>
 		<div class="bar">
 			<i></i>
 		</div>
-		<input type="password" placeholder="password" required>
+		<input type="password" name="password" placeholder="password" required>
 		<a href="" class="forgot_link">forgot ?</a>
-		<button>Sign in</button>
+		<input type="submit" name="submit" value="Login">
 	</div>
 
   <script src="js/index.js"></script>
