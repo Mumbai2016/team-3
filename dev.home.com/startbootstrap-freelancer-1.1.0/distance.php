@@ -1,5 +1,5 @@
 <?php
-    	  require 'C:/xampp/htdocs/team-3/databasecheck.php';
+    	  require 'databasecheck.php';
         $address1=$_POST['address'];
         $mentor_match='';
         $mentor_id='';
