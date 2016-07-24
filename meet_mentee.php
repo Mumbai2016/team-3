@@ -8,5 +8,5 @@ mysqli_query($con,"INSERT INTO  meetings_sche(msce_mtrid,msce_mntid,msce_date,ms
 VALUES ('$mentor_id','$mentee_id','$date','$location')");
 $email_mentor=$_POST['email_mentor'];
 $contact_mentor=$_POST['contact_mentor'];
-$redirect='http://ec2-54-179-176-127.ap-southeast-1.compute.amazonaws.com/request_mentor.php?email='.$email_mentor.'&contact='.$contact_mentor;
+$redirect='ec2-54-179-176-127.ap-southeast-1.compute.amazonaws.com/request_mentor.php?email='.$email_mentor.'&contact='.$contact_mentor;
 header('Location:'.$redirect);
