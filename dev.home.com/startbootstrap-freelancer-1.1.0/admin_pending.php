@@ -1,12 +1,6 @@
-<?php
-require 'databasecheck.php';
-?> 
-<?php
- $mid=$_GET['mentor_id'];
- $mid = explode(',',$mid);
- $mdist=$_GET['distance'];
- $mdist=explode(',',$mdist);
- ?>
+<?
+include 'databasecheck.php';
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -97,42 +91,41 @@ require 'databasecheck.php';
 <body>
   <header>
   <div class="container">
+  <h2>Pending Mentees</h2>
   <table class="table">
     <thead>
       <tr>
     <th><center>Sr. No</center></th>
         <th><center>Name</center></th>
     <th><center>Address</center></th>
-    <th><center>Contact</center></th>
-    <th><center>Distance</center></th>
-        <th><center>Assign</center></th>
-        
+    <th><center>Contact</center></th>   
+    <th><center>Assign</center></th>
       </tr>
       <tr>
       <?php
       $i=1;
-      foreach($mid as $value)
+      $con =mysqli_connect("localhost","root","","katalyst_team3");
+      $res=mysqli_query($con,"Select * from mentee_basic where status_mentee='0'");
+      while($row=mysqli_fetch_row($res))
+      //var_dump($row);
       {
-        $res=mysqli_query($con,"Select * from mentor_basic where mtr_id='$value'");
-        $row=mysqli_fetch_row($res);
-        
         echo ' <tr>
      <td style="width:10%"><center>'.$i.'</center></td>
-        <td style="width:20%"><center>'.$row[3].'</center></td>
-    <td style="width:20%"><center>'.$row[5].'</center></td>
-    
-    <td style="width:20%"><center>'.$row[4].'</center></td>
-    <td style="width:20%"><center>'.$mdist[$i].'</center></td>
-        <td style="width:30%"><center>
-    <form action="#" method="post">
+        <td style="width:20%"><center>'.$row[1].'</center></td>
+    <td style="width:20%"><center>'.$row[3].'</center></td>
+    <td style="width:20%"><center>'.$row[6].'</center></td>
+            <td style="width:30%"><center>
+        <form action="/mapping.php" method="post">
     <input type="hidden" value="'.$row[3].'" name="name">
     <input type="submit" name="accept" value="Assign" style="color:black">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    
     </tr>';
       $i++;
       }
       ?>
     </thead>
   <tbody>
+  <br/>
 </header>
 
 </body>
