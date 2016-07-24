@@ -80,29 +80,30 @@
 <!-- Portfolio Grid Section -->
     <section id="portfolio">
         <div class="container" style="padding:20;font-size:40px;text-decoration:bold">
-          <span style="color:#007100"> Mentor Name:</span><p>Retrive The query from Database</p>
+          <span style="color:#007100"> Mentor Name:Pooja Chaudhary</span><p></p>
         </div>
 		
 		<div class="container" style="padding:20;font-size:40px;text-decoration:bold">
-          <span style="color:#007100"> Mentee Assigned:</span><p>Retrive The query from Database</p>
+          <span style="color:#007100"> Mentee Assigned:Karishma Sahay</span><p></p>
         </div>
 		
 		<div class="container" style="padding:20;font-size:40px;text-decoration:bold">
-          <span style="color:#007100"> Hours Completed:</span><p>Retrive The query from Database</p>
+          <span style="color:#007100"> Hours Completed:7.5</span><p></p>
         </div>
 		
 		<div class="container" style="padding:20;font-size:40px;text-decoration:bold">
-          <span style="color:#007100"> Hours Left:</span><p>Retrive The query from Database</p>
+          <span style="color:#007100"> Hours Left:(NA)</span><p></p>
         </div>
 		
 		<div class="container" style="padding:20;font-size:40px;text-decoration:bold">
-          <span style="color:#007100"> No.of Meetings Conducted:</span><p>Retrive The query from Database</p>
+          <span style="color:#007100"> No.of Meetings Conducted:3</span><p></p>
         </div>
     </section>
+	<img src="http://www.kamdora.com/wp-content/uploads/2015/10/Mentoring-Pic-1.jpg" style=" "align=right width=380 height=600> 
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>Bootstrap Example</title>
+  <title>Home</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
