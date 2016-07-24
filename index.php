@@ -49,7 +49,7 @@
                 </button>
                 <a class="navbar-brand" href="#page-top">Katalyst</a>
             </div>
-		<div ><h2>Admin Panel</h2>
+		<div><h2>Admin Panel</h2></div>
 
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -59,13 +59,16 @@
                         <a href="index.php">Meetings</a>
                     </li>
                     <li class="page-scroll">
-                        <a href="mentor_php.php">Profile</a>
+                        <a href="mentor_php.php">Mentors</a>
                     </li>
                     <li class="page-scroll">
-                        <a href="feedback1.php">Personal Feedback Form</a>
+                        <a href="feedback1.php">Mentees</a>
                     </li>
 					 <li class="page-scroll">
-                        <a href="mentor_registration.php">Registration</a>
+                        <a href="mentor_registration.php">Assignments</a>
+                    </li>
+					 <li class="page-scroll">
+                        <a href="mentor_registration.php">Reports</a>
                     </li>
                 </ul>
             </div>
@@ -82,36 +85,7 @@
 <br>
 <br>
 <br><div style="width:50%;padding:40px;margin-left:40px"><h1>Meetings Scheduled</h1></div>
-<?php $connection = mysql_connect('localhost', 'root', ''); //The Blank string is the password
-mysql_select_db('hrmwaitrose');
-
-$query = "SELECT * FROM employee"; //You don't need a ; like you do in SQL
-$result = mysql_query($query);
-
-echo "<table>"; // start a table tag in the HTML
-
-while($row = mysql_fetch_array($result)){   //Creates a loop to loop through results
-echo "<tr><td>" . $row['name'] . "</td><td>" . $row['age'] . "</td></tr>";  //$row['index'] the index here is a field name
-}
-
-echo "</table>"; //Close the table in HTML
-
-mysql_close();?>
 <div style="width:50%;padding:40px;margin-left:40px;align:right"><h1>Meeting Conducted</h1></div></body></html>
-<?php $connection = mysql_connect('localhost', 'root', ''); //The Blank string is the password
-mysql_select_db('hrmwaitrose');
 
-$query = "SELECT * FROM employee"; //You don't need a ; like you do in SQL
-$result = mysql_query($query);
-
-echo "<table>"; // start a table tag in the HTML
-
-while($row = mysql_fetch_array($result)){   //Creates a loop to loop through results
-echo "<tr><td>" . $row['name'] . "</td><td>" . $row['age'] . "</td></tr>";  //$row['index'] the index here is a field name
-}
-
-echo "</table>"; //Close the table in HTML
-
-mysql_close();?>
 
 </html>
