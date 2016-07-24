@@ -111,7 +111,7 @@ function googleTranslateElementInit() {
       <tr>
       <?php
       $i=1;
-      $con =mysqli_connect("localhost","root","","katalyst_team3");
+      $con =mysqli_connect("localhost","root","root","katalyst_team3");
       $res=mysqli_query($con,"Select * from meetings_sche");
       while($row=mysqli_fetch_row($res))
       //var_dump($row);
