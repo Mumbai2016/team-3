@@ -111,7 +111,7 @@ function googleTranslateElementInit() {
       <tr>
       <?php
       $i=1;
-      $con =mysqli_connect("localhost","root","root","katalyst_team3");
+      $con =mysqli_connect("localhost","root","admin","katalyst_team3");
       $res=mysqli_query($con,"Select * from mentee_basic where status_mentee='0'");
       while($row=mysqli_fetch_row($res))
       //var_dump($row);
