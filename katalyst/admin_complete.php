@@ -1,8 +1,12 @@
+<?
+include 'databasecheck.php';
+?>
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
-
+ 
+  
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -21,7 +25,9 @@
     <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
     <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
     <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css">
-
+   
+  
+  
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -29,15 +35,33 @@
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
 
+  <style>
+  select {
+  position: relative;
+}
+
+/* Style by class. Effects the text of the contained options. */
+.blueText {
+  color: #0000FF;
+}
+
+/* Style by id. Effects position of the select drop down. */
+#styledSelect {
+  left: 10px;
+}
+</style>
+  
+  
 </head>
 
 <body id="page-top" class="index">
 
     <!-- Navigation -->
+
     <nav id="mainNav" class="navbar navbar-default navbar-fixed-top navbar-custom">
         <div class="container">
             <!-- Brand and toggle get grouped for better mobile display -->
-            <!--Translate Start-->
+                <!--Translate Start-->
 <div id="google_translate_element"></div><script type="text/javascript">
 function googleTranslateElementInit() {
   new google.translate.TranslateElement({pageLanguage: 'en', layout: google.translate.TranslateElement.InlineLayout.SIMPLE}, 'google_translate_element');
@@ -72,30 +96,43 @@ function googleTranslateElementInit() {
         </div>
         <!-- /.container-fluid -->
     </nav>
+<body>
+  <header>
+  <div class="container">
+  <h2>Completed Meetings</h2>
+  <table class="table">
+    <thead>
+      <tr>
+    <th><center>Sr. No</center></th>
+        <th><center>Mentor ID</center></th>
+    <th><center>Mentee ID</center></th>
+    <th><center>Date</center></th>   
+    <th><center>Location</center></th>
+      </tr>
+      <tr>
+      <?php
+      $i=1;
+      $con =mysqli_connect("localhost","root","","katalyst_team3");
+      $res=mysqli_query($con,"Select * from meetings_comp");
+      while($row=mysqli_fetch_row($res))
+      //var_dump($row);
+      {
+        echo ' <tr>
+     <td style="width:10%"><center>'.$i.'</center></td>
+        <td style="width:20%"><center>'.$row[1].'</center></td>
+    <td style="width:20%"><center>'.$row[2].'</center></td>
+    <td style="width:20%"><center>'.$row[3].'</center></td>
+    <td style="width:20%"><center>'.$row[5].'</center></td>
+        <td style="width:30%"><center>
+    </tr>';
+      $i++;
+      }
+      ?>
+    </thead>
+  <tbody>
+  <br/>
+</header>
 
-    <!-- Header -->
-    <header>
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
-                    <img class="img-responsive" src="http://static.english.pradesh18.com/pix/2015/07/women-empowerment.jpg" alt="" style="background-repeat:no-repeat">
-                    <div class="intro-text">
-                        <span class="name">WELCOME</span>
-                        <hr class="star-light">
-                        <span class="skills"></span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </header>
-
-    <!-- Portfolio Grid Section -->
-    <section id="portfolio">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12 text-center">
-                    
-					
 </body>
 
 </html>
