@@ -83,19 +83,19 @@
 <!-- Portfolio Grid Section -->
     <section id="portfolio">
         <div class="container" style="padding:20;font-size:40px;text-decoration:bold">
-          <span style="color:#007100">Name:</span><p>Retrive The query from Database</p>
+          <span style="color:#007100">Name:</span><p>Swaati Sinha</p>
         </div>
 		
 		<div class="container" style="padding:20;font-size:40px;text-decoration:bold">
-          <span style="color:#007100"> Email :</span><p>Retrive The query from Database</p>
+          <span style="color:#007100"> Email :</span><p>swati88@hotmail.com</p>
         </div>
 		
 		<div class="container" style="padding:20;font-size:40px;text-decoration:bold">
-          <span style="color:#007100"> Contact:</span><p>Retrive The query from Database</p>
+          <span style="color:#007100"> Contact:</span><p>986544432</p>
         </div>
 		<div style="padding:20;font-size:40px;text-decoration:bold"">
 		<div class="container" style="padding:20;font-size:40px;text-decoration:bold">
-          <span style="color:#007100"> Skills:</span><p>Retrive The query from Database</p>
+          <span style="color:#007100"> Skills:</span><p>Managerial</p>
         </div>
 		
 </div>
