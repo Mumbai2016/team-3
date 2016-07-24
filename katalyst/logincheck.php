@@ -27,7 +27,7 @@ if($check_user>0){
 				}
 		else if($row['log_role']=="mentor")
 		{
-			header('location:mentorhome.php');
+			header('location:mentor_home.php');
 			$session=1;
 		}
 		else
