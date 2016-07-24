@@ -84,7 +84,7 @@ require 'databasecheck.php';
 	<table>
  <?php 
  $cur_user=$_SESSION['username'];
- $res=mysqli_query($con,"Select mnt_id,mnt_name,mnt_email,mnt_college,mnt_dob from mentee_basic where mnt_email='$cur_user'");
+ $res=mysqli_query($con,"Select mnt_name,mnt_email,mnt_college,mnt_dob from mentee_basic where mnt_email='jane@gmail.com'");
  $check_user = mysqli_num_rows($res);
  $row = mysqli_fetch_array($res);
  $id=$row['mnt_id'];
