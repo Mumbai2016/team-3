@@ -22,7 +22,7 @@ if($check_user>0){
         if($row['log_role']=="admin")
 		{$_SESSION['username']=$username;
 		
-			header('location:adminhome.php');
+			header('location:adminhome.html');
 			$session=1;
 				}
 		else if($row['log_role']=="mentor")
