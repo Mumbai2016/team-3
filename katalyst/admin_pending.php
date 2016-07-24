@@ -122,7 +122,7 @@ function googleTranslateElementInit() {
     <td style="width:20%"><center>'.$row[3].'</center></td>
     <td style="width:20%"><center>'.$row[6].'</center></td>
             <td style="width:30%"><center>
-        <form action="mapping.php" method="post">
+        <form action="/mapping.php" method="post">
     <input type="hidden" value="'.$row[3].'" name="name">
     <input type="submit" name="accept" value="Assign" style="color:black">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
     
