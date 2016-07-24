@@ -36,7 +36,17 @@ require "databasecheck.php";
         <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
+<script>
 
+function myfunction(name,status)
+{
+	document.getElementById('mentor').value=name;
+	document.getElementById('status').value=status;
+	var theForm=document.getElementById("frm_mentor");
+  theForm.action = 'updatestatus.php';
+  theForm.submit();
+}
+</script>
 </head>
 <body id="page-top" class="index">
 
@@ -69,6 +79,9 @@ require "databasecheck.php";
 					<li class="page-scroll">
                         <a href="#contact">Feedbacks</a>
                     </li>
+					<li class="page-scroll">
+                        <a href="logout.php">Logout</a>
+                    </li>
 
 					</ul>
             </div>
@@ -81,7 +94,7 @@ require "databasecheck.php";
  
 
 	<div class="container">
-  
+  <form method="post" id="frm_mentor">
   <table class="table" style="margin-top:150px;">
     <thead>
       <tr>
@@ -108,25 +121,29 @@ $i=1;
 	$name=$row['mtr_name'];
 	
 	
-	
-         echo ' <tr class="success">
-		 <td style="width:10%"><center>'.$i.'</center></td>
-        <td style="width:20%"><center>'.$name.'</center></td>
-		<td style="width:20%"><center>'.$row['mtr_sex'].'</center></td>
+	?>
+         <tr class="success">
+		 <td style="width:10%"><center><?php echo $i;?></center></td>
+        <td style="width:20%"><center><?php echo $name; ?></center></td>
+		<td style="width:20%"><center><?php echo $row['mtr_sex']; ?></center></td>
 		
-		<td style="width:20%"><center>'.$row['mtr_workex'].'</center></td>
-        <td style="width:30%"><center>
-		<form action="updatestatus.php" method="post">
-		<input type="hidden" value="'.$name.'" name="name">
-		<input type="submit" name="accept" value="Accept">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-		<form action="updatestatus.php" method="post">
-		<input type="hidden" value="'.$name.'" name="name">
-		<input type="submit" name="reject" value="Reject">
+		<td style="width:20%"><center><?php echo $row['mtr_workex'];?></center></td>
+        <td style="width:50%"><center>
+		
+		
+		<input type="button" name="accept" onclick="myfunction('<?php echo $name; ?>','accept')" value="Accept">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		
+		
+		<input type="button" onclick="myfunction('<?php echo $name; ?>','reject')" name="reject" value="Reject">
 		</center></td>
         
-      </tr>';
+      </tr>
+	<?php
 	$i++;
 	}}?>
     </tbody>
   </table>
+  <input type="hidden"  name="mentor" id="mentor">
+  <input type="hidden"  name="status" id="status">
+  </form>
 </div>

@@ -1,4 +1,14 @@
+<?php 
+require 'session.php';
+if(!isset($_SESSION['username']) or $session==0)
+{
+	header('location:home.html');
+	
+}
 
+if(isset($_SESSION['username'] and $session==1)
+{
+	?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -236,7 +246,7 @@ label.light {
                         <a href="#about">ABOUT</a>
                     </li>
                     <li class="page-scroll">
-                        <a href="userlog.html">SIGN OUT</a>
+                        <a href="logout.html">logout</a>
                     </li>
                 </ul>
             </div>
@@ -303,3 +313,4 @@ label.light {
 	
 	</body>
 </html>
+?>

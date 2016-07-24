@@ -1,18 +1,19 @@
-<?php 
-require 'session.php'
-?>
+<!-- //<?php
+//require 'session.php'
+?> -->
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
-
+ 
+  
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Freelancer - Start Bootstrap Theme</title>
+    <title>Katalyst</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -24,12 +25,9 @@ require 'session.php'
     <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
     <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
     <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css">
-	<link rel="stylesheet" href="css/reset.css">
-
-    <link rel="stylesheet" href="css/style.css" media="screen" type="text/css" />
-	
-
-
+   
+  
+  
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -37,6 +35,23 @@ require 'session.php'
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
 
+  <style>
+  select {
+  position: relative;
+}
+
+/* Style by class. Effects the text of the contained options. */
+.blueText {
+  color: #0000FF;
+}
+
+/* Style by id. Effects position of the select drop down. */
+#styledSelect {
+  left: 10px;
+}
+</style>
+  
+  
 </head>
 
 <body id="page-top" class="index">
@@ -49,7 +64,7 @@ require 'session.php'
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
                     <span class="sr-only">Toggle navigation</span> Menu <i class="fa fa-bars"></i>
                 </button>
-                <a class="navbar-brand" href="#page-top">Start Bootstrap</a>
+                <a class="navbar-brand" href="adminhome.php">Katalyst</a>
             </div>
 
             <!-- Collect the nav links, forms, and other content for toggling -->
@@ -59,26 +74,54 @@ require 'session.php'
                         <a href="#page-top"></a>
                     </li>
                     <li class="page-scroll">
-                        <a href="mentorreq.php">Mentor Request</a>
+                        <a href="home.html">HOME</a>
                     </li>
                     <li class="page-scroll">
-                        <a href="#about">Mapping Mentors</a>
+                        <a href="#about">ABOUT</a>
                     </li>
                     <li class="page-scroll">
-                        <a href="#contact">Outcome</a>
+                        <a href="userlog.html">SIGN IN</a>
                     </li>
-					<li class="page-scroll">
-                        <a href="#contact">Feedbacks</a>
-                    </li>
-					<li class="page-scroll">
-                        <a href="logout.php">Logout</a>
-                    </li>
-
-					</ul>
+                </ul>
             </div>
             <!-- /.navbar-collapse -->
         </div>
         <!-- /.container-fluid -->
     </nav>
 
- 
+  
+  <header>
+ <title>Select Styling</title>
+  <link href="selectExample.css" rel="stylesheet">
+</head>
+<body>
+  <div class="container">
+  
+  <table class="table" style="margin-top:150px;">
+    <thead>
+      <tr>
+    <th><center>Sr. No</center></th>
+        <th><center>Name</center></th>
+    <th><center>Address</center></th>
+    
+    <th><center>Contact</center></th>
+        <th><center>Accept/Reject</center></th>
+        
+      </tr>
+    </thead>
+  <tbody>
+<form method="post" action="distance.php">
+<select id="styledSelect" class="blueText" style="margin-top:150px;margin-left:2px">
+  <option selected disabled>SKILLS</option>
+  <option value="managerial">MANAGERIAL</option>
+  <option value="technical">TECHNICAL</option>
+  <option value="softskills">SOFTSKILLS</option>
+  </select>
+  <br />
+ <label>Address</label>
+  <input type="text" class="form-control" placeholder="Search by Address" name="address" required>
+  <button type="submit" class="btn btn-success btn-m" style="float:center;">Find</button>  
+  </form>
+</header>
+  </body>
+</html>

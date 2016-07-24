@@ -1,5 +1,6 @@
-<?php 
-require 'session.php'
+<?php
+require "databasecheck.php";
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -27,7 +28,6 @@ require 'session.php'
 	<link rel="stylesheet" href="css/reset.css">
 
     <link rel="stylesheet" href="css/style.css" media="screen" type="text/css" />
-	
 
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -36,9 +36,18 @@ require 'session.php'
         <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
+<script>
 
+function myfunction(name,status)
+{
+	document.getElementById('mentor').value=name;
+	document.getElementById('status').value=status;
+	var theForm=document.getElementById("frm_mentor");
+  theForm.action = 'updatestatus.php';
+  theForm.submit();
+}
+</script>
 </head>
-
 <body id="page-top" class="index">
 
     <!-- Navigation -->
@@ -49,7 +58,7 @@ require 'session.php'
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
                     <span class="sr-only">Toggle navigation</span> Menu <i class="fa fa-bars"></i>
                 </button>
-                <a class="navbar-brand" href="#page-top">Start Bootstrap</a>
+                <a class="navbar-brand" href="adminhome.php">KATALYST</a>
             </div>
 
             <!-- Collect the nav links, forms, and other content for toggling -->
@@ -62,13 +71,13 @@ require 'session.php'
                         <a href="mentorreq.php">Mentor Request</a>
                     </li>
                     <li class="page-scroll">
-                        <a href="#about">Mapping Mentors</a>
+                        <a href="mapping.php">Mapping Mentors</a>
                     </li>
                     <li class="page-scroll">
                         <a href="#contact">Outcome</a>
                     </li>
 					<li class="page-scroll">
-                        <a href="#contact">Feedbacks</a>
+                        <a href="adminfbreview.php">Feedbacks</a>
                     </li>
 					<li class="page-scroll">
                         <a href="logout.php">Logout</a>
@@ -80,5 +89,42 @@ require 'session.php'
         </div>
         <!-- /.container-fluid -->
     </nav>
-
- 
+<table class="table" style="margin-top:150px;">
+    <thead>
+      <tr>
+	  <th><center>Sr. No</center></th>
+        <th><center>Name</center></th>
+		<th><center>Date</center></th>
+		<th><center>Location</center></th>
+		<th><center>Approve/Reject<center><th>
+		
+		</tr>
+		</thead>
+	<tbody>
+	<?php
+	
+	$res2=mysqli_query($con,"Select msce_mntid,msce_date, msce_loc from meetings_sche where status=1");
+	$row2=mysqli_fetch_array($res2);
+	$id=$row2['msce_mntid'];
+	echo $id;
+	$date=$row2['msce_date'];
+	$loc=$row2['msce_loc'];
+	$res3=mysqli_query($con,"Select mnt_name from mentee_basic where mnt_id='$id'");
+	
+	$row3=mysqli_fetch_array($res3);
+	$name=$row3['mnt_name'];
+	?><tr class="success">
+		 <td style="width:10%"><center>1</center></td>
+        <td style="width:20%"><center><?php echo $name; ?></center></td>
+		<td style="width:20%"><center><?php echo $date; ?></center></td>
+		
+		<td style="width:20%"><center><?php echo $loc; ?></center></td>
+        <td style="width:50%"><center>
+		<input type="submit" name="accept"  value="Accept">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp
+		<input type="submit"  name="reject" value="Reject">
+		</center></td>
+        
+      </tr>
+	
+}
+	?>

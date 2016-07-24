@@ -36,38 +36,58 @@ require "databasecheck.php";
         <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
+<script>
 
+function myfunction(name,status)
+{
+	document.getElementById('mentor').value=name;
+	document.getElementById('status').value=status;
+	var theForm=document.getElementById("frm_mentor");
+  theForm.action = 'updatestatus.php';
+  theForm.submit();
+}
+</script>
 </head>
 <body id="page-top" class="index">
 
     <!-- Navigation -->
     <nav id="mainNav" class="navbar navbar-default navbar-fixed-top navbar-custom">
         <div class="container">
+		<!--Translate Start-->
+<div id="google_translate_element"></div><script type="text/javascript">
+function googleTranslateElementInit() {
+  new google.translate.TranslateElement({pageLanguage: 'en', layout: google.translate.TranslateElement.InlineLayout.SIMPLE}, 'google_translate_element');
+}
+</script><script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+<!-- Translate End -->
             <!-- Brand and toggle get grouped for better mobile display -->
             <div class="navbar-header page-scroll">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
                     <span class="sr-only">Toggle navigation</span> Menu <i class="fa fa-bars"></i>
                 </button>
-                <a class="navbar-brand" href="#page-top">Start Bootstrap</a>
+                <a class="navbar-brand" href="adminhome.php">KATALYST</a>
             </div>
 
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav navbar-right">
                     <li class="hidden">
-                        <a href="#page-top"></a>
+                        <a href="adminhome.php">KATALYST</a>
                     </li>
                     <li class="page-scroll">
                         <a href="mentorreq.php">Mentor Request</a>
                     </li>
                     <li class="page-scroll">
-                        <a href="#about">Mapping Mentors</a>
+                        <a href="mapping.php">Mapping Mentors</a>
                     </li>
                     <li class="page-scroll">
                         <a href="#contact">Outcome</a>
                     </li>
 					<li class="page-scroll">
-                        <a href="#contact">Feedbacks</a>
+                        <a href="adminfbreview.php">Feedbacks</a>
+                    </li>
+					<li class="page-scroll">
+                        <a href="logout.php">Logout</a>
                     </li>
 
 					</ul>
@@ -81,7 +101,7 @@ require "databasecheck.php";
  
 
 	<div class="container">
-  
+  <form method="post" id="frm_mentor">
   <table class="table" style="margin-top:150px;">
     <thead>
       <tr>
@@ -100,7 +120,7 @@ require "databasecheck.php";
 	$res=mysqli_query($con,"Select mtr_name, mtr_sex, mtr_workex from mentor_basic where mtr_status=0") ;
 	if(!$res){die('Error' . mysqli_error($con));}
 $check_user = mysqli_num_rows($res);
-$i=1;
+
 
 	if($check_user>0){
 
@@ -108,25 +128,25 @@ $i=1;
 	$name=$row['mtr_name'];
 	
 	
-	
-         echo ' <tr class="success">
-		 <td style="width:10%"><center>'.$i.'</center></td>
-        <td style="width:20%"><center>'.$name.'</center></td>
-		<td style="width:20%"><center>'.$row['mtr_sex'].'</center></td>
+	?>
+         <tr class="success">
+		 <td style="width:10%"><center><?php echo $i;?></center></td>
+        <td style="width:20%"><center><?php echo $name; ?></center></td>
+		<td style="width:20%"><center><?php echo $row['mtr_sex']; ?></center></td>
 		
-		<td style="width:20%"><center>'.$row['mtr_workex'].'</center></td>
-        <td style="width:30%"><center>
-		<form action="updatestatus.php" method="post">
-		<input type="hidden" value="'.$name.'" name="name">
-		<input type="submit" name="accept" value="Accept">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-		<form action="updatestatus.php" method="post">
-		<input type="hidden" value="'.$name.'" name="name">
-		<input type="submit" name="reject" value="Reject">
+		<td style="width:20%"><center><?php echo $row['mtr_workex'];?></center></td>
+        <td style="width:50%"><center>
+		<input type="button" name="accept" onclick="myfunction('<?php echo $name; ?>','accept')" value="Accept">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp
+		<input type="button" onclick="myfunction('<?php echo $name; ?>','reject')" name="reject" value="Reject">
 		</center></td>
         
-      </tr>';
-	$i++;
+      </tr>
+	<?php
+	
 	}}?>
     </tbody>
   </table>
+  <input type="hidden"  name="mentor" id="mentor">
+  <input type="hidden"  name="status" id="status">
+  </form>
 </div>
