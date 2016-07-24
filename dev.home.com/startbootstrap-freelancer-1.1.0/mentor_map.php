@@ -104,6 +104,7 @@ require 'databasecheck.php';
         <th><center>Name</center></th>
     <th><center>Address</center></th>
     <th><center>Contact</center></th>
+    <th><center>Distance</center></th>
         <th><center>Assign</center></th>
         
       </tr>
@@ -121,6 +122,7 @@ require 'databasecheck.php';
     <td style="width:20%"><center>'.$row[5].'</center></td>
     
     <td style="width:20%"><center>'.$row[4].'</center></td>
+    <td style="width:20%"><center>'.$mdist[$i].'</center></td>
         <td style="width:30%"><center>
     <form action="#" method="post">
     <input type="hidden" value="'.$row[3].'" name="name">

@@ -3,7 +3,7 @@ require 'dev.mail.com/PHPMailer-master/PHPMailerAutoload.php';
 include('/dev.sms.com/way2sms-api.php');
 sendWay2SMS ( '9920902322' , 'E6475E' , $_GET['contact'] , 'This is to inform you that you have received a request for mentorship.Please log in to view the details.');   
 
-$mail = new PHPMailer;
+/*$mail = new PHPMailer;
 
 $mail->isSMTP();                            // Set mailer to use SMTP
 $mail->Host = 'smtp.gmail.com';             // Specify main and backup SMTP servers
@@ -27,5 +27,5 @@ if(!$mail->send()) {
     echo 'Mailer Error: ' . $mail->ErrorInfo;
 } else {
     echo 'Message has been sent';
-}
+}*/
 ?>
