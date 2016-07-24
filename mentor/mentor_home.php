@@ -71,6 +71,8 @@
         </div>
         <!-- /.container-fluid -->
     </nav>
+	<div style="background-color:#808080;padding:40px;height:25px"><center><p style="font-size:40">Mentor's Panel</p><center></div>
+
 	<br>
 	<br>
 	<br>
@@ -107,58 +109,6 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
   <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 </head>
-<body>
-
-<div class="container">
-  <h2>Monthly Progress Bar</h2>
-
-  <div class="progress">
-    <div class="progress-bar progress-bar-success" role="progressbar" style="width:60%">
-      Fantastic(>2)
-    </div>
-    <div class="progress-bar progress-bar-warning" role="progressbar" style="width:10%">
-    Good(=1)
-    </div>
-    <div class="progress-bar progress-bar-danger" role="progressbar" style="width:20%">
-     Average(=0)
-    </div>
-  </div>
-</div>
-
-</body>
-</html>
-
-
-    <h1>Pikaday</h1>
-
-    <p class="large">A refreshing JavaScript Datepicker — lightweight, no dependencies, modular CSS.</p>
-
-    <p><a href="https://github.com/dbushell/Pikaday"><strong>Pikaday source on GitHub</strong></a></p>
-
-    <label for="datepicker">Date:</label>
-    <br>
-    <input type="text" id="datepicker">
-
-    <h2>What is this?</h2>
-
-    <p>Since version 1.0 Pikaday is a stable and battle tested date-picker. Feel free to use it however you like but please report any bugs or feature requests to the <a href="https://github.com/dbushell/Pikaday/issues">GitHub issue tracker</a>, thanks!</p>
-
-    <p class="small">Copyright © 2014 <a href="http://dbushell.com/">David Bushell</a> | BSD &amp; MIT license</p>
-
-
-    <script src="pikaday.js"></script>
-    <script>
-
-    var picker = new Pikaday(
-    {
-        field: document.getElementById('datepicker'),
-        firstDay: 1,
-        minDate: new Date(),
-        maxDate: new Date(2020, 12, 31),
-        yearRange: [2000,2020]
-    });
-
-    </script>
    
 </body>
 

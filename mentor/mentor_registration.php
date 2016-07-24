@@ -101,6 +101,8 @@
 	</script>
 	<link rel="stylesheet" type="text/css" href="feedbackform.css">
 	</head>
+	<div style="background-color:#808080;padding:40px;height:25px"><center><p style="font-size:40">Admin Panel</p><center></div>
+
 	<body>
 	<br>
 	<br>
