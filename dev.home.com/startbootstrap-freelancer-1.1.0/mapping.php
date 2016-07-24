@@ -97,6 +97,18 @@
 <body>
   <div class="container">
   
+  <table class="table" style="margin-top:150px;">
+    <thead>
+      <tr>
+    <th><center>Sr. No</center></th>
+        <th><center>Name</center></th>
+    <th><center>Address</center></th>
+    
+    <th><center>Contact</center></th>
+        <th><center>Accept/Reject</center></th>
+        
+      </tr>
+    </thead>
   <tbody>
 <form method="post" action="distance.php">
 <select id="styledSelect" class="blueText" style="margin-top:150px;margin-left:2px">
