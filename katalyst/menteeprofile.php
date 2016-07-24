@@ -1,5 +1,5 @@
 <?php
-require 'session.php';
+//require 'session.php';
 require 'databasecheck.php';
 ?>
 <!DOCTYPE html>
@@ -83,11 +83,13 @@ require 'databasecheck.php';
 	<td style="font-size:50px;color:white;padding-left:10px;">
 	<table>
  <?php 
- $cur_user=$_SESSION['username'];
- $res=mysqli_query($con,"Select mnt_id,mnt_name,mnt_email,mnt_college,mnt_dob from mentee_basic where mnt_email='$cur_user'");
+ $cur_user='tanawde78@gmail.com';//$_SESSION['username'];
+ $res=mysqli_query($con,"Select mnt_id,mnt_name,mnt_email,mnt_college,mnt_dob,mnt_mobile from mentee_basic where mnt_email='$cur_user'");
  $check_user = mysqli_num_rows($res);
  $row = mysqli_fetch_array($res);
  $id=$row['mnt_id'];
+ $email_mentor=$row['mnt_email'];
+ $contact_mentor=$row['mnt_mobile'];
  echo "<tr><td><center><b>".$row['mnt_name']."</b></center> </td></tr>
  <tr>
  <td style='font-size:15px;'>Email:   ".$row['mnt_email']."</td></tr>
@@ -95,8 +97,10 @@ require 'databasecheck.php';
  <td style='font-size:15px;'>College:   ".$row['mnt_college']."</td></tr>
  <tr>
  <td style='font-size:15px;'>DOB:   ".$row['mnt_dob']."</td></tr></table>";
-
-	?>
+ $res=mysqli_query($con,"Select assign_mtrid from assignment where assign_mntid='$id'");
+ $row = mysqli_fetch_array($res);
+ $id_mentor=$row['assign_mtrid'];
+?>
 
 	</td>
 	<td style="padding-left:170px;color:white;padding-top:0px;">
@@ -118,8 +122,11 @@ require 'databasecheck.php';
  </table>
  </div>
  <div style="padding-top:20px;">
- <form action="meet_mentee.php" method="post">
- 
+ <form action="../meet_mentee.php" method="post">
+ <input type="hidden" name="id" value="<?php echo $id; ?>">
+ <input type="hidden" name="id_mentor" value="<?php echo $id_mentor; ?>">
+ <input type="hidden" name="email_mentor" value="<?php echo $email_mentor; ?>">
+ <input type="hidden" name="contact_mentor" value="<?php echo $contact_mentor; ?>">
  <label>Date:</label>   <input type="date" name="meet_date"><br/><br/>
  <label>Location:</label><input type="text" name="location"><br/><br/>
  <input type="submit" value="Request Meeting">
