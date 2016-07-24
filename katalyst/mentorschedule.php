@@ -68,7 +68,7 @@ function myfunction(name,status)
                         <a href="#page-top"></a>
                     </li>
                     <li class="page-scroll">
-                        <a href="mentorreq.php">Mentor Request</a>
+                        <a href="mentorreq.php">Meeting Request</a>
                     </li>
                     <li class="page-scroll">
                         <a href="mapping.php">Mapping Mentors</a>
