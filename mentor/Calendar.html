@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
+    
+    <meta name="author" content="David Bushell">
+    <link rel="stylesheet" href="css/pikaday.css">
+    <link rel="stylesheet" href="css/site.css">
+</head>
+<body>
+    <h1>Schedule</h1>
+
+    <p class="large">Meeting</p>
+
+    
+    <label for="datepicker">Date:</label>
+    <br>
+    <input type="text" id="datepicker">
+	<br>
+	<label for="datepicker1">Future Date:</label>
+    <br>
+    <input type="text" id="datepicker1">
+	
+	<br><label for ="Availability">Availability:</label>
+	 <form>
+  <input type="radio" name="Availability" value="Available">Available<input type="radio" name="Availability" value="Not Available">Not Available<br>
+  <br><br>
+  <input type = "Submit" name="Submit">
+</form> 
+<br><br>
+    <h2>The More You Meet ...The Better You BE!!!</h2>
+
+  
+    
+
+
+    <script src="pikaday.js"></script>
+    <script>
+
+    var picker = new Pikaday(
+    {
+        field: document.getElementById('datepicker'),
+        firstDay: 1,
+        minDate: new Date(),
+        maxDate: new Date(2017, 12, 31),
+        yearRange: [2000,2017]
+    });
+	var picker1 = new Pikaday(
+    {
+        field: document.getElementById('datepicker1'),
+        firstDay: 1,
+        minDate: new Date(),
+        maxDate: new Date(2017, 12, 31),
+        yearRange: [2000,2017]
+    });
+
+    </script>
+    
+	
+</body>
+</html>
