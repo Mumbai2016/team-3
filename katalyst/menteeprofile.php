@@ -119,7 +119,7 @@ require 'databasecheck.php';
  </table>
  </div>
  <div style="padding-top:20px;">
- <form action="meet_mentee.php" method="post">
+ <form action="../meet_mentee.php" method="post">
  
  <label>Date:</label>   <input type="date" name="meet_date"><br/><br/>
  <label>Location:</label><input type="text" name="location"><br/><br/>
